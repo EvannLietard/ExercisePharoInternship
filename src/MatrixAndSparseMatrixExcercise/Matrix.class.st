@@ -33,3 +33,14 @@ Matrix >> initialize: nRows columns: nColumns [
 Matrix >> rows [
 	^ rows
 ]
+
+{ #category : #initialization }
+Matrix >> setValueForOneEmplacement: rowIndex column: columnIndex value: value [ 
+"Define a value at a defined location obtained thanks to its row and column"
+|index|
+index:= (rowIndex - 1) * columns + columnIndex . 
+data at: index put:value 
+
+	
+	
+]
