@@ -32,6 +32,22 @@ SparseMatrix >> countNotZerosInData [
     ^ notZeroCount
 ]
 
+{ #category : #'instance creation' }
+SparseMatrix >> fromCompactMatrix:compactMatrix [
+     | compactnumRows compactnumColumns |
+    compactnumRows := compactMatrix size.
+    compactnumColumns := compactMatrix first size.
+
+    compactMatrix do: [ :row |
+        | rowIdx colIdx value |
+        rowIdx := row at: 1.
+        colIdx := row at: 2.
+        value := row at: 3.
+        self setValueForOneEmplacement: rowIdx column: colIdx value: value.
+    ].
+    ^ self initialize: compactnumRows columns: compactnumColumns array: data
+]
+
 { #category : #changeData }
 SparseMatrix >> getValueForOneEmplacement: rowIndex column: columnIndex [
 "Get the Value with rowIndex and ColumnIndex"
@@ -50,7 +66,7 @@ SparseMatrix >> initialize: nRows columns: nColumns array: arrayGiven [
    expectedSize := nRows * nColumns.
 	rows := nRows.
 	columns := nColumns.
-	(arrayGiven size = expectedSize)
+	(arrayGiven size <= expectedSize)
         ifTrue: [ data := arrayGiven ]
         ifFalse: [ self error: 'Size of the provided array does not match the size of the array' ].
 	
