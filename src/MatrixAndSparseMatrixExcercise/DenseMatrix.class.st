@@ -21,6 +21,13 @@ DenseMatrix >> data [
 
 ]
 
+{ #category : #accessing }
+DenseMatrix >> getSpecificValue: i column: j [ 
+"Get a value at a specific location using indexs"
+        ^ (data at: i) at: j
+
+]
+
 { #category : #initialization }
 DenseMatrix >> initializeWithRows: r columns: c [ 
 "This method initializes a new instance of DenseMatrix with a specified number of rows and columns, filling the matrix with zeros."
@@ -32,5 +39,12 @@ DenseMatrix >> initializeWithRows: r columns: c [
 DenseMatrix >> rows [
 	"This method returns the number of rows of the matrix."
 	^ data size
+
+]
+
+{ #category : #accessing }
+DenseMatrix >> setOnSpecificValue: i column: j value: v [
+"set a value at a specific location using indexs"
+        ^ (data at: i) at: j put: v
 
 ]
