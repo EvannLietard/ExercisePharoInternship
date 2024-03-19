@@ -64,3 +64,17 @@ SparseMatrixTest >> testSetOneValue [
 	mat setValueForOneEmplacement: 2 column: 2 value: 5.
 	self assert: (mat data at: 9) equals: 5
 ]
+
+{ #category : #tests }
+SparseMatrixTest >> testToCompactMatrix [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	| mat compactMatrix  |
+	mat:= SparseMatrix new initialize: 2 columns:2  array: #(1 2 0 4).
+	compactMatrix:= mat toCompactMatrix .
+	self assert: compactMatrix size = 3.
+   self assert: (compactMatrix at: 1) = #(0 0 1).
+   self assert: (compactMatrix at: 2) = #(0 1 2).
+	self assert: (compactMatrix at: 3) = #(1 1 4).
+]
