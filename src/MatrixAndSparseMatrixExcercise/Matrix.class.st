@@ -38,11 +38,14 @@ value := data at: index .
 ]
 
 { #category : #initialization }
-Matrix >> initialize: nRows columns: nColumns [
-	super initialize .
+Matrix >> initialize: nRows columns: nColumns array: arrayGiven [
+	| expectedSize |
+   expectedSize := nRows * nColumns.
 	rows := nRows.
 	columns := nColumns.
-	data := Array new: rows * columns.
+	(arrayGiven size = expectedSize)
+        ifTrue: [ data := arrayGiven ]
+        ifFalse: [ self error: 'Size of the provided array does not match the size of the array' ].
 	
 	
 ]
