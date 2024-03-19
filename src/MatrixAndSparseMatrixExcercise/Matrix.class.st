@@ -25,6 +25,18 @@ Matrix >> data [
 	^ data
 ]
 
+{ #category : #changeData }
+Matrix >> getValueForOneEmplacement: rowIndex column: columnIndex [
+"Get the Value with rowIndex and ColumnIndex"
+| index value |
+index:= self calculateIndex: rowIndex column: columnIndex . 
+value := data at: index .
+^ value
+
+	
+	
+]
+
 { #category : #initialization }
 Matrix >> initialize: nRows columns: nColumns [
 	super initialize .
@@ -44,7 +56,7 @@ Matrix >> rows [
 Matrix >> setValueForOneEmplacement: rowIndex column: columnIndex value: value [ 
 "Define a value at a defined location obtained thanks to its row and column"
 "needs to increment columnIndex by one because at: don't take 0"
-|index|
+| index |
 index:= self calculateIndex: rowIndex column: columnIndex . 
 data at: index put:value 
 

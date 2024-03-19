@@ -21,6 +21,17 @@ MatrixTest >> testCalculateIndex [
 ]
 
 { #category : #tests }
+MatrixTest >> testGetOneValue [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	| mat |
+	mat:= Matrix new initialize: 3 columns: 3.
+	mat setValueForOneEmplacement: 2 column: 2 value: 5.
+	self assert: (mat getValueForOneEmplacement: 2 column:2) equals: 5
+]
+
+{ #category : #tests }
 MatrixTest >> testInialize [
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
