@@ -21,6 +21,16 @@ SparseMatrixTest >> testCalculateIndex [
 ]
 
 { #category : #tests }
+SparseMatrixTest >> testCountNotElementZero [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	| mat |
+	mat:= SparseMatrix new initialize: 3 columns:3  array: #(1 0 3 0 5 0 7 8 9).
+	self assert: (mat countNotZerosInData) equals:6.
+]
+
+{ #category : #tests }
 SparseMatrixTest >> testGetOneValue [
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
@@ -28,7 +38,7 @@ SparseMatrixTest >> testGetOneValue [
 	| mat |
 	mat:= SparseMatrix new initialize: 3 columns:3  array: #(1 2 3 4 5 6 7 8 9).
 	mat setValueForOneEmplacement: 2 column: 2 value: 5.
-	self assert: (mat getValueForOneEmplacement: 2 column:2) equals: 5
+	self assert: (mat getValueForOneEmplacement: 1 column:1) equals: 5
 ]
 
 { #category : #tests }
