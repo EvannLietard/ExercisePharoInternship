@@ -37,8 +37,9 @@ Matrix >> rows [
 { #category : #initialization }
 Matrix >> setValueForOneEmplacement: rowIndex column: columnIndex value: value [ 
 "Define a value at a defined location obtained thanks to its row and column"
+"needs to increment columnIndex by one because at: don't take 0"
 |index|
-index:= (rowIndex - 1) * columns + columnIndex . 
+index:= rowIndex * columns + columnIndex + 1. 
 data at: index put:value 
 
 	

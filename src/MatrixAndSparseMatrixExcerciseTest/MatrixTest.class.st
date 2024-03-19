@@ -29,5 +29,5 @@ MatrixTest >> testSetOneValue [
 	| mat |
 	mat:= Matrix new initialize: 3 columns: 3.
 	mat setValueForOneEmplacement: 2 column: 2 value: 5.
-	self assert: (mat data at: 5) equals: 5
+	self assert: (mat data at: 9) equals: 5
 ]
