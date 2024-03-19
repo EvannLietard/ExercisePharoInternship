@@ -40,7 +40,7 @@ SparseMatrixTest >> testInialize [
 	mat:= SparseMatrix new initialize: 3 columns:3  array: #(1 2 3 4 5 6 7 8 9).
 	self assert: mat rows equals: 3.
 	self assert: mat columns equals: 3.
-	self assert: mat data size equals: 3.
+	self assert: mat data size equals: 9.
 	self assert: (mat data at: 3) equals:3.
 ]
 

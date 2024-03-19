@@ -16,12 +16,8 @@ SparseMatrix >> calculateIndex: rowIndex column: columnIndex [
 
 { #category : #accessing }
 SparseMatrix >> columns [
+"Override of this method because now we directly have the attribute"
 	^ columns 
-]
-
-{ #category : #accessing }
-SparseMatrix >> data [
-	^ data
 ]
 
 { #category : #changeData }
@@ -51,6 +47,7 @@ SparseMatrix >> initialize: nRows columns: nColumns array: arrayGiven [
 
 { #category : #accessing }
 SparseMatrix >> rows [
+	"Override of this method because now we directly have the attribute"
 	^ rows
 ]
 
