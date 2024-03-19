@@ -9,6 +9,12 @@ Class {
 	#category : #MatrixAndSparseMatrixExcercise
 }
 
+{ #category : #changeData }
+Matrix >> calculateIndex: rowIndex column: columnIndex [
+	"Method for calculate the index for other method"
+	^rowIndex * columns + columnIndex + 1
+]
+
 { #category : #accessing }
 Matrix >> columns [
 	^ columns 
@@ -34,12 +40,12 @@ Matrix >> rows [
 	^ rows
 ]
 
-{ #category : #initialization }
+{ #category : #changeData }
 Matrix >> setValueForOneEmplacement: rowIndex column: columnIndex value: value [ 
 "Define a value at a defined location obtained thanks to its row and column"
 "needs to increment columnIndex by one because at: don't take 0"
 |index|
-index:= rowIndex * columns + columnIndex + 1. 
+index:= self calculateIndex: rowIndex column: columnIndex . 
 data at: index put:value 
 
 	

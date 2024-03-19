@@ -10,6 +10,17 @@ Class {
 }
 
 { #category : #tests }
+MatrixTest >> testCalculateIndex [
+	"comment stating purpose of instance-side message"
+	"scope: class-variables  &  instance-variables"	
+			
+	| mat index | 
+	mat:= Matrix new initialize: 3 columns: 3.
+	index := mat calculateIndex: 2 column: 0.
+	self assert: index equals: 7
+]
+
+{ #category : #tests }
 MatrixTest >> testInialize [
 	"comment stating purpose of instance-side message"
 	"scope: class-variables  &  instance-variables"	
